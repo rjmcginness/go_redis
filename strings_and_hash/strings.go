@@ -43,7 +43,7 @@ func Incr() {
 func GetRange() {
 	redis := persistence.GetRedis()
 
-	redis.Set("long_str", "Bronwyn McGinness", 0)
+	redis.Set("long_str", "CoolKid McGinness", 0)
 	name, _ := redis.GetRange("long_str", 0, 6).Result()
 	fmt.Println(name)
 }
