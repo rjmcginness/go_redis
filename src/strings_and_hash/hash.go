@@ -2,7 +2,7 @@ package strings_and_hash
 
 import (
 	"fmt"
-	"go_redis/persistence"
+	"go_redis/src/persistence"
 )
 
 func HSet() {

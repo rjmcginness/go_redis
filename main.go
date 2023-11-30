@@ -4,27 +4,27 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"go_redis/logging"
-	"go_redis/model"
-	"go_redis/persistence"
 	"go_redis/src"
-	"go_redis/strings_and_hash"
+	"go_redis/src/logging"
+	"go_redis/src/model"
+	"go_redis/src/persistence"
+	strings_and_hash2 "go_redis/src/strings_and_hash"
 	"net/http"
 )
 
 func examples() {
-	strings_and_hash.SimpleSet()
-	strings_and_hash.SetWithTTL()
-	strings_and_hash.Incr()
-	strings_and_hash.GetRange()
-	strings_and_hash.HSet()
-	strings_and_hash.HMSet()
-	strings_and_hash.MSet()
-	strings_and_hash.HGet()
-	strings_and_hash.HMGet()
-	strings_and_hash.HGetAll()
-	strings_and_hash.Scan()
-	strings_and_hash.HKeys()
+	strings_and_hash2.SimpleSet()
+	strings_and_hash2.SetWithTTL()
+	strings_and_hash2.Incr()
+	strings_and_hash2.GetRange()
+	strings_and_hash2.HSet()
+	strings_and_hash2.HMSet()
+	strings_and_hash2.MSet()
+	strings_and_hash2.HGet()
+	strings_and_hash2.HMGet()
+	strings_and_hash2.HGetAll()
+	strings_and_hash2.Scan()
+	strings_and_hash2.HKeys()
 }
 
 var log = logging.GetLogger()
