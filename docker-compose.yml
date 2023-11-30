@@ -1,9 +1,18 @@
 version: "3.8"
 
 services:
+  go_redis:
+    build: .
+    ports:
+      - 8089:8081
+    env_file:
+      - config.env
+    depends_on:
+      - redis
   redis:
     image: redis:7-alpine
     command:
       - redis-server
     ports:
       - 6379:6379
+

@@ -21,3 +21,10 @@
 go.work
 
 .idea
+
+
+# App specific
+/logs
+go.mod
+go.sum
+
