@@ -50,8 +50,6 @@ func addUser(c *gin.Context) {
 
 	newId := redis.Incr("userId").Val()
 
-	log.Infof("POST: newId = %d", newId)
-
 	err := redis.HSet(fmt.Sprintf("user:%d", newId), "name", user.Name).Err()
 	if err != nil {
 		log.Errorf("Add User: %#v with id %d - %#v", user, newId, err)
@@ -62,5 +60,13 @@ func addUser(c *gin.Context) {
 }
 
 func getUser(c *gin.Context) {
-	log.Info("GET")
+	id := c.Param("id")
+
+	strCmd := redis.HGet(fmt.Sprintf("user:%s", id), "name")
+	if strCmd.Err() != nil {
+		log.Errorf("Get User: id %s - %#v", id, strCmd.Err())
+		c.JSON(http.StatusNoContent, gin.H{"id": id})
+	} else {
+		c.JSON(http.StatusOK, gin.H{"name": strCmd.Val()})
+	}
 }
